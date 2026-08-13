@@ -1,1233 +1,770 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="color-scheme" content="light" />
-  <meta name="theme-color" content="#0a1b2f" />
-  <meta name="description" content="GSPS Site Visitor Safety Induction – ANDRITZ O&M Pvt. Ltd." />
-  <title>Visitor Safety Induction – Gandhi Sagar Pump Storage Plant</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="color-scheme" content="light"/>
+<meta name="theme-color" content="#0A1628"/>
+<meta name="description" content="GSPS Site Visitor Safety Induction – ANDRITZ O&M Pvt. Ltd."/>
+<title>Visitor Safety Induction – Gandhi Sagar Pump Storage Plant</title>
+<link rel="preload" as="image" href="image1.jpg" fetchpriority="high"/>
+<style>
+  :root {
+    --navy: #0A1628; --blue: #0D3B6E; --steel: #1A5276;
+    --accent: #F39C12; --danger: #C0392B; --safe: #1E8449;
+    --light: #EBF5FB; --white: #FFFFFF; --gray: #7F8C8D;
+    --border: #D5D8DC; --text: #1C2833; --bg: #F4F6F7;
+  }
   
-  <style>
-    /* ==========================================================================
-       1. VARIABLES & THEMING
-       ========================================================================== */
-    :root {
-      /* Brand Colors */
-      --color-brand-dark: #0a1b2f;
-      --color-brand-primary: #154c79;
-      --color-brand-secondary: #2980b9;
-      --color-accent: #f39c12;
-      
-      /* Semantic Colors */
-      --color-danger: #d32f2f;
-      --color-danger-bg: #fdedec;
-      --color-safe: #2e7d32;
-      --color-safe-bg: #eafaf1;
-      --color-warn: #f57f17;
-      --color-warn-bg: #fef9e7;
-      
-      /* Neutrals */
-      --color-text-main: #1e293b;
-      --color-text-muted: #64748b;
-      --color-bg-page: #f8fafc;
-      --color-bg-card: #ffffff;
-      --color-border: #e2e8f0;
-      
-      /* Typography & Spacing */
-      --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 16px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-      
-      /* Transitions */
-      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
 
-    /* ==========================================================================
-       2. RESET & BASE
-       ========================================================================== */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  img { max-width: 100%; height: auto; display: block; }
+  
+  /* Tables */
+  .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--white); border-radius: 8px; overflow: hidden; }
+  th { background: var(--blue); color: white; padding: 12px 16px; text-align: left; font-weight: 600; }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #F8F9FA; }
 
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-    }
+  /* Header */
+  header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, var(--steel) 100%);
+    color: white; padding: 40px 24px 32px; text-align: center;
+    border-bottom: 4px solid var(--accent);
+  }
+  header h1 { font-size: clamp(24px, 5vw, 36px); font-weight: 800; letter-spacing: -0.5px; margin-top: 16px; }
+  header h2 { font-size: clamp(16px, 3vw, 20px); font-weight: 400; color: #AED6F1; margin-top: 8px; }
+  .header-logo { max-width: 150px; margin: 0 auto; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 
-    body {
-      font-family: var(--font-family);
-      background: var(--color-bg-page);
-      color: var(--color-text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+  /* Progress Bar */
+  #progress-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy); padding: 12px 24px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  #progress-bar span { color: #AED6F1; font-size: 13px; font-weight: 500; white-space: nowrap; }
+  .progress-track { flex: 1; height: 8px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 4px; transition: width 0.4s ease; width: 0%; }
+  #step-label { color: white; font-weight: 600; }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+  /* Sections & Cards */
+  .section { display: none; max-width: 860px; margin: 32px auto; padding: 0 16px; }
+  .section.active { display: block; animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
 
-    button, input, select {
-      font: inherit;
-    }
+  .card {
+    background: var(--white); border-radius: 12px; padding: 32px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06); margin-bottom: 24px; border: 1px solid #E5E8E8;
+  }
+  .card h2 { font-size: 22px; font-weight: 700; color: var(--blue); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin: 24px 0 12px; border-bottom: 2px solid var(--light); padding-bottom: 8px;}
+  .card p, .card li { font-size: 15px; color: #34495E; margin-bottom: 8px; }
+  .card ul, .card ol { padding-left: 24px; margin-bottom: 16px; }
 
-    a {
-      color: var(--color-brand-secondary);
-      text-decoration: none;
-    }
+  .hero-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    color: white; border-radius: 12px; padding: 40px 32px; text-align: center;
+    margin-bottom: 24px; box-shadow: 0 6px 24px rgba(13,59,110,0.2);
+  }
+  .hero-card h2 { font-size: 28px; font-weight: 800; color: white; margin-bottom: 12px; justify-content: center; border: none; }
+  .hero-card p { color: #AED6F1; font-size: 16px; line-height: 1.6; }
 
-    a:hover {
-      text-decoration: underline;
-    }
+  /* Image Utilities */
+  .site-photo { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 16px; }
+  .site-photo--md { max-width: 800px; margin: 0 auto 16px; }
+  .site-photo--sm { max-width: 400px; margin: 0 auto 16px; }
+  .site-photo--xs { max-width: 300px; margin: 0 auto 16px; }
 
-    /* Accessibility Focus States */
-    :focus-visible {
-      outline: 3px solid var(--color-brand-secondary);
-      outline-offset: 2px;
-    }
+  /* Alerts */
+  .alert { border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; font-size: 14.5px; }
+  .alert-danger { background: #FDEDEC; border-left: 5px solid var(--danger); color: #7B241C; }
+  .alert-safe { background: #EAFAF1; border-left: 5px solid var(--safe); color: #145A32; }
+  .alert-warn { background: #FEF9E7; border-left: 5px solid var(--accent); color: #7D6608; }
 
-    /* ==========================================================================
-       3. TYPOGRAPHY & ICONS
-       ========================================================================== */
-    h1, h2, h3 {
-      color: var(--color-brand-dark);
-      line-height: 1.3;
-    }
+  /* Interactive Elements (Tabs, Checklists, Forms) */
+  .tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .tab-btn { padding: 10px 20px; border-radius: 24px; border: 1.5px solid var(--border); font-size: 14px; font-weight: 600; cursor: pointer; background: white; color: var(--navy); transition: all 0.2s; }
+  .tab-btn:hover { border-color: var(--blue); background: var(--light); }
+  .tab-btn.active { background: var(--blue); color: white; border-color: var(--blue); box-shadow: 0 4px 10px rgba(13,59,110,0.2); }
+  .tab-pane { display: none; animation: fadeIn 0.3s ease; }
+  .tab-pane.active { display: block; }
 
-    .icon-svg {
-      width: 24px;
-      height: 24px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      margin-right: 8px;
-      vertical-align: middle;
-    }
+  .checklist { list-style: none; padding: 0; margin-bottom: 16px; }
+  .checklist li { margin-bottom: 8px; background: #FDFEFE; border: 1.5px solid var(--border); border-radius: 8px; transition: border-color 0.2s; }
+  .checklist li:hover { border-color: var(--blue); }
+  .checklist label { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; font-size: 14.5px; cursor: pointer; font-weight: 500; color: var(--navy); }
+  .checklist input[type="checkbox"] { margin-top: 3px; accent-color: var(--blue); transform: scale(1.3); flex-shrink: 0; cursor: pointer; }
 
-    /* ==========================================================================
-       4. LAYOUT COMPONENTS
-       ========================================================================== */
-    .header-main {
-      background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand-primary) 100%);
-      color: white;
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      border-bottom: 4px solid var(--color-accent);
-    }
+  /* Form Types Toggle */
+  .visitor-type-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  .radio-card { position: relative; cursor: pointer; }
+  .radio-card input { position: absolute; opacity: 0; }
+  .rc-content { display: flex; flex-direction: column; padding: 16px; border: 2px solid var(--border); border-radius: 10px; background: white; transition: all 0.2s; }
+  .rc-content strong { font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+  .rc-content span { font-size: 13px; color: var(--gray); line-height: 1.4; }
+  .radio-card input:checked + .rc-content { border-color: var(--blue); background: var(--light); box-shadow: 0 4px 12px rgba(13,59,110,0.1); }
+  @media (max-width: 500px) { .visitor-type-toggle { grid-template-columns: 1fr; gap: 12px; } }
 
-    .header-title {
-      font-size: clamp(1.5rem, 4vw, 2.25rem);
-      font-weight: 800;
-      margin-top: 1rem;
-      letter-spacing: -0.025em;
-    }
+  /* Forms */
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .form-group label .req { color: var(--danger); }
+  .form-group input, .form-group select {
+    width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
+    padding: 12px 14px; font-size: 15px; color: var(--text); background: white; transition: all 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(13,59,110,0.1); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  
+  .consent-box { background: var(--light); border: 1.5px solid #AED6F1; border-radius: 10px; padding: 24px; margin: 24px 0; }
+  .consent-check { display: flex; gap: 14px; align-items: flex-start; margin-top: 20px; padding: 16px; background: white; border-radius: 8px; border: 1.5px solid var(--border); }
+  .consent-check input { transform: scale(1.4); margin-top: 2px; flex-shrink: 0; accent-color: var(--blue); cursor: pointer; }
+  .consent-check label { font-size: 14px; font-weight: 600; color: var(--navy); cursor: pointer; }
 
-    .header-subtitle {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.8);
-      margin-top: 0.5rem;
-    }
+  /* Buttons */
+  .btn-row { display: flex; gap: 16px; justify-content: space-between; margin-top: 32px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 24px; }
+  .btn { padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; transition: all 0.2s; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-primary { background: var(--blue); color: white; }
+  .btn-primary:hover:not(:disabled) { background: var(--navy); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(13,59,110,0.25); }
+  .btn-secondary { background: #E5E8E8; color: var(--navy); }
+  .btn-secondary:hover:not(:disabled) { background: #D5D8DC; }
+  .btn-success { background: var(--safe); color: white; }
+  .btn-success:hover:not(:disabled) { background: #155A2C; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(30,132,73,0.25); }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; background: var(--gray); color: white; }
 
-    .header-logo {
-      max-width: 180px;
-      margin: 0 auto;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-md);
-      background: white;
-      padding: 0.5rem;
-    }
+  /* Emergency Grid */
+  .emg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 20px; }
+  .emg-card { background: var(--white); border-radius: 10px; padding: 20px; text-align: center; border: 1.5px solid #F1948A; box-shadow: 0 4px 12px rgba(231,76,60,0.08); }
+  .emg-card .emg-icon { font-size: 36px; margin-bottom: 8px; }
+  .emg-card .emg-label { font-size: 13px; color: #922B21; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .emg-card .emg-num { font-size: 18px; color: var(--danger); font-weight: 800; margin-top: 8px; }
+  .emg-card a { color: inherit; text-decoration: none; }
+  .emg-card a:hover { text-decoration: underline; }
 
-    /* Progress Bar */
-    .progress-container {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--color-brand-dark);
-      padding: 0.75rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      box-shadow: var(--shadow-sm);
-    }
+  /* Quiz */
+  .quiz-q { background: var(--bg); border-radius: 10px; padding: 24px; margin-bottom: 20px; border: 1px solid var(--border); }
+  .quiz-q p { font-weight: 700; font-size: 16px; margin-bottom: 16px; color: var(--navy); }
+  .quiz-opt { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-opt label { display: flex; align-items: center; gap: 12px; font-size: 15px; cursor: pointer; padding: 12px 16px; border-radius: 8px; border: 1.5px solid var(--border); background: white; transition: all 0.2s; font-weight: 500; }
+  .quiz-opt label:hover { border-color: var(--blue); background: var(--light); }
+  .quiz-opt input[type="radio"] { accent-color: var(--blue); transform: scale(1.2); }
+  .quiz-feedback { font-size: 14px; font-weight: 700; margin-top: 12px; padding: 10px 16px; border-radius: 6px; display: none; }
+  .correct { background: #EAFAF1; color: var(--safe); border-left: 4px solid var(--safe); }
+  .wrong { background: #FDEDEC; color: var(--danger); border-left: 4px solid var(--danger); }
 
-    .progress-label, .progress-step-text {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.875rem;
-      font-weight: 500;
-      white-space: nowrap;
-    }
+  /* Success Screen */
+  .success-screen { text-align: center; padding: 20px 0; }
+  .success-screen .tick { font-size: 72px; margin-bottom: 20px; line-height: 1; }
+  .success-screen h2 { font-size: 32px; color: var(--safe); font-weight: 800; margin-bottom: 16px;}
+  .pass-id { display: inline-block; background: var(--light); border: 2.5px dashed var(--blue); border-radius: 12px; padding: 20px 40px; margin: 32px auto; font-size: 28px; font-weight: 900; color: var(--navy); letter-spacing: 3px; }
 
-    .progress-track {
-      flex: 1;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 999px;
-      overflow: hidden;
-    }
+  /* Loading Overlay */
+  #submit-overlay { display: none; position: fixed; inset: 0; background: rgba(10,22,40,0.9); z-index: 9999; align-items: center; justify-content: center; flex-direction: column; gap: 20px; backdrop-filter: blur(4px); }
+  #submit-overlay.show { display: flex; }
+  .spinner { width: 60px; height: 60px; border: 6px solid rgba(255,255,255,0.1); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #submit-overlay p { color: white; font-size: 18px; font-weight: 600; letter-spacing: 0.5px; }
 
-    .progress-fill {
-      height: 100%;
-      background: var(--color-accent);
-      border-radius: 999px;
-      transition: width 0.4s ease-in-out;
-      width: 0%;
-    }
+  /* Responsive */
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    header { padding: 32px 16px 24px; }
+    .card { padding: 24px 20px; }
+    .btn-row { flex-direction: column-reverse; }
+    .btn-row .btn { width: 100%; }
+    .pass-id { font-size: 22px; padding: 16px 24px; width: 100%; word-break: break-all; }
+  }
 
-    /* Sections & Cards */
-    .section {
-      display: none;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .section.active {
-      display: block;
-      animation: slideFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes slideFadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .card {
-      background: var(--color-bg-card);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 1.5rem;
-      border: 1px solid var(--color-border);
-    }
-
-    .card-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--color-brand-primary);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .card-subtitle {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin: 1.5rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--color-bg-page);
-    }
-
-    .hero-card {
-      background: var(--color-brand-primary);
-      color: white;
-      border-radius: var(--radius-lg);
-      padding: 2.5rem 2rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .hero-card h2 {
-      color: white;
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-
-    /* Tables */
-    .table-responsive {
-      width: 100%;
-      overflow-x: auto;
-      margin-top: 1rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.875rem;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-    }
-
-    th {
-      background: var(--color-bg-page);
-      color: var(--color-text-main);
-      padding: 0.75rem 1rem;
-      text-align: left;
-      font-weight: 600;
-      border-bottom: 2px solid var(--color-border);
-    }
-
-    td {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    /* ==========================================================================
-       5. UI COMPONENTS
-       ========================================================================== */
-    
-    /* Alerts */
-    .alert {
-      border-radius: var(--radius-sm);
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.25rem;
-      font-size: 0.9375rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-    
-    .alert-danger { background: var(--color-danger-bg); border-left: 4px solid var(--color-danger); color: #7f1d1d; }
-    .alert-safe { background: var(--color-safe-bg); border-left: 4px solid var(--color-safe); color: #14532d; }
-    .alert-warn { background: var(--color-warn-bg); border-left: 4px solid var(--color-warn); color: #713f12; }
-
-    /* Buttons */
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: space-between;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--color-border);
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: var(--transition-fast);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .btn-primary { background: var(--color-brand-secondary); color: white; }
-    .btn-primary:hover:not(:disabled) { background: var(--color-brand-primary); transform: translateY(-1px); }
-    .btn-secondary { background: var(--color-bg-page); color: var(--color-text-main); border: 1px solid var(--color-border); }
-    .btn-secondary:hover:not(:disabled) { background: #e2e8f0; }
-    .btn-success { background: var(--color-safe); color: white; }
-    .btn-success:hover:not(:disabled) { background: #1b5e20; }
-    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-    /* Tabs */
-    .tabs-nav {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .tab-btn {
-      padding: 0.5rem 1.25rem;
-      border-radius: 999px;
-      border: 1px solid var(--color-border);
-      background: white;
-      color: var(--color-text-muted);
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-
-    .tab-btn:hover { border-color: var(--color-brand-secondary); color: var(--color-brand-secondary); }
-    .tab-btn.active {
-      background: var(--color-brand-secondary);
-      color: white;
-      border-color: var(--color-brand-secondary);
-    }
-
-    .tab-content { display: none; animation: slideFadeIn 0.3s ease; }
-    .tab-content.active { display: block; }
-
-    /* Forms */
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-
-    .form-group { margin-bottom: 1.25rem; }
-    .form-group label {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--color-text-main);
-      margin-bottom: 0.5rem;
-    }
-    
-    .required-asterisk { color: var(--color-danger); }
-
-    .form-control {
-      width: 100%;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      padding: 0.75rem 1rem;
-      font-size: 0.9375rem;
-      color: var(--color-text-main);
-      background: white;
-      transition: var(--transition-fast);
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--color-brand-secondary);
-      box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.15);
-    }
-
-    /* Radio Cards (Visitor Type) */
-    .radio-card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .radio-card {
-      position: relative;
-      cursor: pointer;
-    }
-
-    .radio-card input {
-      position: absolute;
-      opacity: 0;
-    }
-
-    .radio-card-content {
-      display: flex;
-      flex-direction: column;
-      padding: 1.25rem;
-      border: 2px solid var(--color-border);
-      border-radius: var(--radius-md);
-      background: white;
-      transition: var(--transition-fast);
-    }
-
-    .radio-card-title {
-      font-weight: 600;
-      color: var(--color-text-main);
-      margin-bottom: 0.25rem;
-    }
-
-    .radio-card-desc {
-      font-size: 0.8125rem;
-      color: var(--color-text-muted);
-    }
-
-    .radio-card input:checked + .radio-card-content {
-      border-color: var(--color-brand-secondary);
-      background: rgba(41, 128, 185, 0.05);
-    }
-
-    /* Interactive Checklists & Quiz */
-    .interactive-list {
-      list-style: none;
-    }
-
-    .interactive-list li {
-      margin-bottom: 0.75rem;
-      background: white;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      transition: var(--transition-fast);
-    }
-
-    .interactive-list li:hover { border-color: var(--color-brand-secondary); }
-
-    .check-label {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 1rem;
-      cursor: pointer;
-      font-size: 0.9375rem;
-      font-weight: 500;
-    }
-
-    .check-input {
-      margin-top: 0.125rem;
-      width: 1.125rem;
-      height: 1.125rem;
-      accent-color: var(--color-brand-secondary);
-      cursor: pointer;
-    }
-
-    .quiz-feedback {
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-top: 0.75rem;
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-sm);
-      display: none;
-    }
-
-    /* Overlay / Loading */
-    .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(10, 27, 47, 0.9);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 1.25rem;
-      backdrop-filter: blur(4px);
-    }
-    
-    .overlay.active { display: flex; }
-    
-    .spinner {
-      width: 48px;
-      height: 48px;
-      border: 4px solid rgba(255,255,255,0.1);
-      border-top-color: var(--color-accent);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .overlay-text {
-      color: white;
-      font-size: 1.125rem;
-      font-weight: 500;
-    }
-
-    /* Utilities */
-    .text-danger { color: var(--color-danger); }
-    .text-safe { color: var(--color-safe); }
-    .mt-4 { margin-top: 1rem; }
-    .mb-4 { margin-bottom: 1rem; }
-    
-    /* Image specific wrappers */
-    .img-wrapper {
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      margin-bottom: 1rem;
-    }
-
-    /* ==========================================================================
-       6. RESPONSIVE DESIGN
-       ========================================================================== */
-    @media (max-width: 768px) {
-      .form-grid { grid-template-columns: 1fr; gap: 0; }
-      .radio-card-grid { grid-template-columns: 1fr; }
-      .card { padding: 1.5rem; }
-      .btn-group { flex-direction: column-reverse; }
-      .btn-group .btn { width: 100%; }
-    }
-
-    @media print {
-      .progress-container, .btn-group, .tabs-nav, .hero-card { display: none !important; }
-      .card { box-shadow: none; border: 1px solid #000; break-inside: avoid; }
-      body { background: white; }
-      .section { display: block !important; margin: 0; }
-    }
-  </style>
+  @media print { 
+    #progress-bar, .btn-row, .tabs, .hero-card { display: none !important; }
+    .card { box-shadow: none; border: 1px solid #000; break-inside: avoid; }
+    body { background: white; }
+  }
+</style>
 </head>
 <body>
 
-<!-- Loading Overlay -->
-<div class="overlay" id="submit-overlay" role="alert" aria-busy="true">
+<div id="submit-overlay">
   <div class="spinner"></div>
-  <p class="overlay-text">Submitting your entry, please wait…</p>
+  <p>Submitting your entry, please wait…</p>
 </div>
 
-<!-- Header -->
-<header class="header-main">
-  <img class="header-logo" src="image2.jpg" alt="Andritz Hydro Logo" loading="lazy" decoding="async" onerror="this.style.display='none'" />
-  <h1 class="header-title">Andritz Hydro</h1>
-  <p class="header-subtitle">Visitor Safety Instruction – GSPSP</p>
+<header>
+  <img class="header-logo site-photo" src="image2.jpg" width="300px" height="auto" alt="Andritz Hydro Logo" loading="lazy" decoding="async" onerror="this.style.display='none'"/>
+  <h1>Andritz Hydro</h1>
+  <h2>Visitor Safety Instruction – GSPSP</h2>
 </header>
 
-<!-- Progress Bar -->
-<div class="progress-container" aria-label="Induction Progress">
-  <span class="progress-label">Progress</span>
-  <div class="progress-track" aria-hidden="true">
-    <div class="progress-fill" id="progress-fill"></div>
-  </div>
-  <span class="progress-step-text" id="step-label" aria-live="polite">Step 1 / 6</span>
+<div id="progress-bar">
+  <span>Progress</span>
+  <div class="progress-track"><div class="progress-fill" id="pfill"></div></div>
+  <span id="step-label">Step 1 / 6</span>
 </div>
 
-<main>
-  <!-- ── PAGE 1: Welcome ── -->
-  <section class="section active" id="sec-welcome">
-    <div class="hero-card">
-      <h2>Welcome to Gandhi Sagar Pump Storage Power Plant</h2>
-      <p>This short induction ensures your visit is safe. Please read every section carefully.<br/>Completion is <strong>mandatory</strong> before entering the powerhouse.</p>
+<!-- ── PAGE 1: Welcome ── -->
+<div class="section active" id="sec-welcome">
+  <div class="hero-card">
+    <h2>Welcome to Gandhi Sagar Pump Storage Power Plant</h2>
+    <p>This short induction ensures your visit is safe. Please read every section carefully.<br/>Completion is <strong>mandatory</strong> before entering the powerhouse.</p>
+  </div>
+  
+  <div class="card">
+    <h2><span class="icon">&#127981;</span>GSPS Site Overview</h2>
+    <div class="table-scroll">
+      <table>
+        <tr>
+          <th>Restricted Areas</th>
+          <th>Requirements</th>
+        </tr>
+        <tr>
+          <td>Switch Yard, Battery Room, TRC, CAT</td>
+          <td>Authorized Personnel Only</td>
+        </tr>
+      </table>
+    </div>
+    <img class="site-photo site-photo--md" src="image1.jpg" alt="GSPS Site View" style="margin-top: 20px;" loading="eager" fetchpriority="high" decoding="async"/>
+  </div>
+
+  <div class="btn-row">
+    <span></span>
+    <button class="btn btn-primary" data-goto="next">Next: Safety Commitment &#8594;</button>
+  </div>
+</div>
+
+<!-- ── PAGE 2: Safety Policy ── -->
+<div class="section" id="sec-policy">
+  <div class="card">
+    <h2><span class="icon">&#128680;</span> Committed to No Harm</h2>
+    <div class="alert alert-safe"><strong>"No one gets hurt – That's the goal."</strong><br/>At ANDRITZ, excellence begins with Health and Safety. We protect everyone we impact — employees, contractors, and visitors.</div>
+    <p>Safety is not separate from work — it is built into everything we do. Safety comes before short-term targets or pressure. We speak up, take action, and look out for each other.</p>
+    
+    <h3>What this means for everyone on site:</h3>
+    <ul>
+      <li><strong>Leaders</strong> prioritize safety in every decision, even under pressure.</li>
+      <li><strong>Supervisors</strong> set expectations, give guidance, and stop unsafe work.</li>
+      <li><strong>Every person on site</strong> follows the rules and looks out for their team.</li>
+    </ul>
+    <div class="alert alert-warn" style="margin-top:20px;"><strong>CEO Commitment:</strong> "A bad financial result can be recovered, but harm to someone's life cannot be undone."</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">&#128203;</span>QHSE &amp; Energy Policy Statement</h2>
+    <p>ANDRITZ is unconditionally committed to compliance with all relevant legal requirements and applicable standards regarding health, safety, and environmental protection.</p>
+    <ul>
+      <li>ISO 9001 – Quality Management</li>
+      <li>ISO 14001 – Environmental Management</li>
+      <li>ISO 45001 – Occupational Health &amp; Safety</li>
+      <li>ISO 50001 – Energy Management</li>
+    </ul>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" data-goto="prev">&#8592; Back</button>
+    <button class="btn btn-primary" data-goto="next">Next: Site Rules &#8594;</button>
+  </div>
+</div>
+
+<!-- ── PAGE 3: Site Rules & Organization ── -->
+<div class="section" id="sec-rules">
+  <div class="card">
+    <h2><span class="icon">&#128101;</span> Organisation & First Aid</h2>
+    <img src="Organisaiton Chart.jpg" alt="Organisation chart" class="site-photo site-photo--md" width="300px" height="auto" loading="lazy" decoding="async" onerror="this.style.display='none'">
+    </div>
+    <div class="card">
+      <p><strong>First Aiders on Site:</strong></p>
+      <div>
+
+   <img src="FIrst aider cum fire fighting.jpg"  alt="List of First Aiders"  width="200px" height="300px" loading="lazy" decoding="async" onerror="this.style.display='none'">
+
+  <div>
+    <h3>First Aiders</h3>
+    <ul>
+    <li><strong>Franco Lontani</strong> - Site Manager - <a href="tel:+916350570951">6350570951</a></li>
+    <li><strong>Ravinder Singh</strong> - HSE Manager - <a href="tel:+919958872939">9958872939</a></li>
+    <li><strong>Bharat Solanki</strong> - HSE Manager - <a href="tel:+919179381712">9179381712</a></li>
+    <li><strong>Nadeem Ansari</strong> - Male Nurse - <a href="tel:+918602538371">8602538371</a></li>
+  </ul>
+  </div>
+  <div>
+    <img src="First aid.png"width="200px" height="300px" loading="lazy" decoding="async" onerror="this.style.display='none'">
+
+  </div>
+
+</div>
+    
+  </div>
+  
+  <div class="card">
+    <h2><span class="icon">&#9888;&#65039;</span> General Safety Rules</h2>
+    <ul>
+      <li>Follow your authorized escort at all time within site premises</li>
+      <li>No drugs, alcohol, or unauthorized smoking.</li>
+      <li>Stop work immediately if it is unsafe.</li>
+      <li>Work only if trained, competent, and authorized.</li>
+      <li>Follow all site safety and environmental rules.</li>
+      <li>If unsure, stop and ask your supervisor.</li>
+    </ul>
+    <div class="alert alert-danger" style="margin-top: 16px;">
+      <strong>Remember:</strong> Safety is everyone's responsibility. Always work safely, follow procedures, and report unsafe conditions immediately.
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" data-goto="prev">&#8592; Back</button>
+    <button class="btn btn-primary" data-goto="next">Next: Visitor Instructions &#8594;</button>
+  </div>
+</div>
+
+<!-- ── PAGE 4: Visitor Instructions + PPE ── -->
+<div class="section" id="sec-instructions">
+  <div class="card">
+    <h2><span class="icon">&#128204;</span>Visitor Instructions</h2>
+    
+    <!-- Primary Instruction Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="emergency">Emergency</button>
+      <button class="tab-btn" data-tab="dos">Do's and Don'ts</button>
+      <button class="tab-btn" data-tab="floors">Floor Plans</button>
+      <button class="tab-btn" data-tab="mandatory">Mandatory Checks</button>
+    </div>
+
+    <!-- Emergency Tab -->
+    <div class="tab-pane active" id="emergency">
+      <div class="alert alert-danger">
+        <strong>If you hear an emergency hooter or siren:</strong><br/>
+        Follow the safety exit signs &#8594; reach the emergency assembly point &#8594; stay calm, do not panic &#8594; wait for further instruction.
+      </div>
+      <div class="emg-grid">
+        <div class="emg-card"><div class="emg-icon">&#128657;</div><div class="emg-label">Admin</div><div class="emg-num">Amit Duhan</div></div>
+        <div class="emg-card"><div class="emg-icon">&#128658;</div><div class="emg-label">Site Manager</div><div class="emg-num">Franco Lontani</div></div>
+        <div class="emg-card">
+          <div class="emg-icon">&#128222;</div>
+          <div class="emg-label">HSE Contact</div>
+          <div class="emg-num"><a href="tel:+91-6395352548">Bharat Singh Solanki</a></div>
+        
+    </div>
+    </div>
+        <img src="Upstream view Landscape.jpg" width="auto" height="800px" loading="lazy" decoding="async" onerror="this.style.display='none'">
+      </div>
+
+    <!-- Do's and Don'ts Tab -->
+    <div class="tab-pane" id="dos">
+      <h3>&#9989; Do's</h3>
+      <ul>
+        <li>If you are a Doctor or First Aider, please inform the Site Manager/HSE Advisor.</li>
+        <li>Follow all safety instructions and warning signs displayed in the work areas.</li>
+        <li>Use appropriate PPE as required for the area being visited.</li>
+        <li>Watch your step and avoid tripping over materials, tools, or other objects.</li>
+      </ul>
+
+      <h3>&#10060; Don'ts</h3>
+      <ul>
+        <li>Do not enter the powerhouse unless authorized by Security.</li>
+        <li>Do not enter excavations, confined spaces, or approach hazardous materials.</li>
+        <li>Do not touch or operate any equipment, materials, or chemicals.</li>
+        <li>Do not carry cameras or recording devices without prior permission.</li>
+        <li>Smoking and consumption of tobacco/gutka is strictly prohibited.</li>
+      </ul>
+    </div>
+
+    <!-- Floor Plans Tab -->
+    <div class="tab-pane" id="floors">
+      <h3>Powerhouse Layouts</h3>
+      <p>Familiarize yourself with these restricted areas:</p>
+      <div class="emg-grid">
+        <div class="emg-card"><strong>MIV Floor</strong><img class="site-photo site-photo--xs" src="MIV FLOOR.jpg" alt="MIV Floor" loading="lazy" onerror="this.style.display='none'"/></div>
+        <div class="emg-card"><strong>Turbine Floor</strong><img class="site-photo site-photo--xs" src="Turbine Floor Top View.jpg" alt="Turbine Floor" loading="lazy" onerror="this.style.display='none'"/></div>
+        <div class="emg-card"><strong>Generator Floor</strong><img class="site-photo site-photo--xs" src="Generator Floor.jpg" alt="Generator Floor" loading="lazy" onerror="this.style.display='none'"/></div>
+        <div class="emg-card"><strong>Service Bay</strong><img class="site-photo site-photo--xs" src="Service Bay.jpg" alt="Service Bay" loading="lazy" onerror="this.style.display='none'"/></div>
+      </div>
+    </div>
+
+    <!-- Mandatory Checks Tab -->
+    <div class="tab-pane" id="mandatory">
+      <h3>Mandatory Requirements</h3>
+      <ul class="checklist" id="mandatory-checks">
+        <li><label><input type="checkbox" data-mandatory-check/><span>Safety Helmet, Safety Shoes, and Reflective Jacket are worn at all times on site.</span></label></li>
+        <li><label><input type="checkbox" data-mandatory-check/><span>Only site vehicles are allowed to enter inside the powerhouse.</span></label></li>
+        <li><label><input type="checkbox" data-mandatory-check/><span>You must be accompanied by an authorized escort at all times.</span></label></li>
+        <li><label><input type="checkbox" data-mandatory-check/><span>I wil not touch any equipment without permission</span></label></li>
+        <li><label><input type="checkbox" data-mandatory-check/><span>I consent to follow all safety rules &amp; instructions.</span></label></li>
+      </ul>
+      <p id="mandatory-status" style="margin-top:12px;font-size:14px;font-weight:600;color:var(--danger);">Please tick all items above to unlock the next step.</p>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" data-goto="prev">&#8592; Back</button>
+    <button class="btn btn-primary" id="btn-mandatory-next" data-goto="next" disabled>Next: Knowledge Check &#8594;</button>
+  </div>
+</div>
+
+<!-- ── PAGE 5: Quiz ── -->
+<div class="section" id="sec-quiz">
+  <div class="card">
+    <h2><span class="icon">&#128221;</span>Quick Knowledge Check</h2>
+    <p style="margin-bottom:24px; color:var(--gray);">Answer all questions correctly to proceed. You may retry if needed.</p>
+
+    <div class="quiz-q" id="q1">
+      <p>1. Which PPE items are mandatory before entering the site?</p>
+      <div class="quiz-opt">
+        <label><input type="radio" name="q1" value="a"/> Gloves and earplugs only</label>
+        <label><input type="radio" name="q1" value="b"/> Safety helmet, safety shoes, and reflective jacket</label>
+        <label><input type="radio" name="q1" value="c"/> Just a hard hat is enough</label>
+      </div>
+      <div class="quiz-feedback" id="qf1"></div>
     </div>
     
-    <div class="card">
-      <h2 class="card-title">
-        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M9 7h6M9 11h6"/></svg>
-        GSPS Site Overview
-      </h2>
-      <div class="table-responsive">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Restricted Areas</th>
-              <th scope="col">Requirements</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Switch Yard, Battery Room, TRC, CAT</td>
-              <td>Authorized Personnel Only</td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="quiz-q" id="q2">
+      <p>2. What should you do when you hear an emergency siren?</p>
+      <div class="quiz-opt">
+        <label><input type="radio" name="q2" value="a"/> Continue working until told otherwise</label>
+        <label><input type="radio" name="q2" value="b"/> Run towards the exit immediately</label>
+        <label><input type="radio" name="q2" value="c"/> Follow exit signs, reach the assembly point, stay calm, and wait for instructions</label>
       </div>
-      <div class="img-wrapper mt-4">
-        <img src="image1.jpg" alt="Aerial view of GSPS site" loading="eager" fetchpriority="high" decoding="async"/>
-      </div>
-    </div>
-
-    <div class="btn-group">
-      <span></span>
-      <button class="btn btn-primary nav-btn" data-target="next">Next: Safety Commitment &rarr;</button>
-    </div>
-  </section>
-
-  <!-- ── PAGE 2: Safety Policy ── -->
-  <section class="section" id="sec-policy">
-    <div class="card">
-      <h2 class="card-title">
-        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Committed to No Harm
-      </h2>
-      
-      <div class="alert alert-safe">
-        <div>
-          <strong>"No one gets hurt – That's the goal."</strong><br/>
-          At ANDRITZ, excellence begins with Health and Safety. We protect everyone we impact — employees, contractors, and visitors.
-        </div>
-      </div>
-      
-      <p class="mb-4">Safety is not separate from work — it is built into everything we do. Safety comes before short-term targets or pressure. We speak up, take action, and look out for each other.</p>
-      
-      <h3 class="card-subtitle">What this means for everyone on site:</h3>
-      <ul class="interactive-list" style="padding-left:1.5rem; list-style: disc; border:none;">
-        <li style="border:none; margin-bottom:0.5rem; background:transparent;"><strong>Leaders</strong> prioritize safety in every decision, even under pressure.</li>
-        <li style="border:none; margin-bottom:0.5rem; background:transparent;"><strong>Supervisors</strong> set expectations, give guidance, and stop unsafe work.</li>
-        <li style="border:none; margin-bottom:0.5rem; background:transparent;"><strong>Every person on site</strong> follows the rules and looks out for their team.</li>
-      </ul>
-      
-      <div class="alert alert-warn mt-4">
-        <strong>CEO Commitment:</strong> "A bad financial result can be recovered, but harm to someone's life cannot be undone."
-      </div>
-    </div>
-
-    <div class="btn-group">
-      <button class="btn btn-secondary nav-btn" data-target="prev">&larr; Back</button>
-      <button class="btn btn-primary nav-btn" data-target="next">Next: Site Rules &rarr;</button>
-    </div>
-  </section>
-
-  <!-- ── PAGE 3: Site Rules & Organization ── -->
-  <section class="section" id="sec-rules">
-    <div class="card">
-      <h2 class="card-title">
-        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-        Organisation & First Aid
-      </h2>
-      <div class="img-wrapper">
-        <img src="Organisaiton Chart.jpg" alt="Site Organisation Chart" loading="lazy" decoding="async" onerror="this.style.display='none'">
-      </div>
-      
-      <h3 class="card-subtitle">Site Contacts & First Aiders</h3>
-      <div class="table-responsive">
-        <table>
-          <thead>
-            <tr>
-              <th>Role</th>
-              <th>Name</th>
-              <th>Contact</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Site Manager</td><td>Franco Lontani</td><td><a href="tel:+916350570951">6350570951</a></td></tr>
-            <tr><td>HSE Manager</td><td>Ravinder Singh</td><td><a href="tel:+919958872939">9958872939</a></td></tr>
-            <tr><td>HSE Manager</td><td>Bharat Solanki</td><td><a href="tel:+919179381712">9179381712</a></td></tr>
-            <tr><td>Male Nurse</td><td>Nadeem Ansari</td><td><a href="tel:+918602538371">8602538371</a></td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="quiz-feedback" id="qf2"></div>
     </div>
     
-    <div class="card">
-      <h2 class="card-title text-danger">
-        <svg class="icon-svg" viewBox="0 0 24 24" style="color:var(--color-danger);"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01"/></svg>
-        General Safety Rules
-      </h2>
-      <ul class="interactive-list" style="padding-left:1.5rem; list-style: disc; border:none;">
-        <li style="border:none; margin-bottom:0.5rem; background:transparent;">Follow your authorized escort at all times within site premises.</li>
-        <li style="border:none; margin-bottom:0.5rem; background:transparent;">No drugs, alcohol, or unauthorized smoking.</li>
-        <li style="border:none; margin-bottom:0.5rem; background:transparent;">Stop work immediately if it is unsafe.</li>
-        <li style="border:none; margin-bottom:0.5rem; background:transparent;">Follow all site safety and environmental rules.</li>
-      </ul>
-      <div class="alert alert-danger mt-4">
-        <strong>Remember:</strong> Safety is everyone's responsibility. Always work safely, follow procedures, and report unsafe conditions immediately.
+    <div class="quiz-q" id="q3">
+      <p>3. Who is responsible for your safety on site?</p>
+      <div class="quiz-opt">
+        <label><input type="radio" name="q3" value="a"/> Only the HSE Advisor</label>
+        <label><input type="radio" name="q3" value="b"/> Only the Site Manager</label>
+        <label><input type="radio" name="q3" value="c"/> Everyone — you, your host, supervisors, and site management</label>
       </div>
+      <div class="quiz-feedback" id="qf3"></div>
     </div>
 
-    <div class="btn-group">
-      <button class="btn btn-secondary nav-btn" data-target="prev">&larr; Back</button>
-      <button class="btn btn-primary nav-btn" data-target="next">Next: Visitor Instructions &rarr;</button>
+    <div style="margin-top:24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+      <button class="btn btn-primary" id="btn-quiz-check">Check Answers</button>
+      <span id="quiz-result" style="font-size:15px; font-weight:700;"></span>
     </div>
-  </section>
+  </div>
 
-  <!-- ── PAGE 4: Visitor Instructions + PPE ── -->
-  <section class="section" id="sec-instructions">
-    <div class="card">
-      <h2 class="card-title">
-        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-        Visitor Instructions
-      </h2>
+  <div class="btn-row">
+    <button class="btn btn-secondary" data-goto="prev">&#8592; Back</button>
+    <button class="btn btn-primary" id="btn-quiz-next" disabled data-goto="next">Next: Register Entry &#8594;</button>
+  </div>
+</div>
+
+<!-- ── PAGE 6: Visitor Registration Form ── -->
+<div class="section" id="sec-register">
+  <div class="card">
+    <h2><span class="icon">&#128203;</span>Site Entry Registration</h2>
+    
+    <form id="visitor-form" novalidate>
       
-      <!-- Tabs Navigation -->
-      <nav class="tabs-nav" aria-label="Visitor Instructions Tabs">
-        <button class="tab-btn active" data-tab="tab-emergency" aria-pressed="true">Emergency</button>
-        <button class="tab-btn" data-tab="tab-dos" aria-pressed="false">Do's and Don'ts</button>
-        <button class="tab-btn" data-tab="tab-mandatory" aria-pressed="false">Mandatory Checks</button>
-      </nav>
-
-      <!-- Tab Content -->
-      <div class="tab-content active" id="tab-emergency">
-        <div class="alert alert-danger">
-          <strong>If you hear an emergency hooter or siren:</strong><br/>
-          Follow safety exit signs &rarr; reach assembly point &rarr; stay calm &rarr; wait for instruction.
-        </div>
-        <div class="img-wrapper mt-4">
-          <img src="Upstream view Landscape.jpg" alt="Emergency evacuation map" loading="lazy" decoding="async" onerror="this.style.display='none'">
-        </div>
+      <!-- Visitor Type Toggle -->
+      <div class="visitor-type-toggle">
+        <label class="radio-card">
+          <input type="radio" name="visitor_type" id="type-visitor" value="visitor" checked>
+          <span class="rc-content">
+            <strong>Non-Andritz Visitor</strong>
+            <span>Full safety registration</span>
+          </span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="visitor_type" id="type-andritz" value="andritz">
+          <span class="rc-content">
+            <strong>Andritz Employee</strong>
+            <span>Quick entry (Name, Email, Mobile)</span>
+          </span>
+        </label>
       </div>
 
-      <div class="tab-content" id="tab-dos">
-        <div class="form-grid">
-          <div>
-            <h3 class="card-subtitle text-safe">✓ Do's</h3>
-            <ul style="padding-left:1.5rem;">
-              <li>Inform HSE if you are a certified First Aider.</li>
-              <li>Follow all safety warning signs.</li>
-              <li>Use appropriate PPE as required.</li>
-              <li>Watch your step around tripping hazards.</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="card-subtitle text-danger">✗ Don'ts</h3>
-            <ul style="padding-left:1.5rem;">
-              <li>Do not enter powerhouse unauthorized.</li>
-              <li>Do not enter confined spaces or excavations.</li>
-              <li>Do not touch or operate equipment.</li>
-              <li>No unapproved cameras/recording.</li>
-            </ul>
-          </div>
+      <p style="font-size:14px; margin-bottom:24px; color:var(--gray);">All fields marked <span style="color:var(--danger);font-weight:bold;">*</span> are required.</p>
+
+      <!-- COMMON FIELDS (Always visible) -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-name">Full Name <span class="req">*</span></label>
+          <input type="text" id="f-name" placeholder="e.g. Ramesh Kumar" required/>
+        </div>
+        <div class="form-group">
+          <label for="f-mobile">Mobile Number <span class="req">*</span></label>
+          <input type="tel" id="f-mobile" placeholder="+91 XXXXX XXXXX" required/>
         </div>
       </div>
 
-      <div class="tab-content" id="tab-mandatory">
-        <h3 class="card-subtitle">Mandatory Requirements</h3>
-        <p class="mb-4" style="font-size: 0.875rem; color: var(--color-text-muted);">Please acknowledge all points below to unlock the next step.</p>
-        <ul class="interactive-list" id="mandatory-checks">
-          <li>
-            <label class="check-label">
-              <input type="checkbox" class="check-input mandatory-cb" />
-              <span>Safety Helmet, Safety Shoes, and Reflective Jacket are worn at all times.</span>
-            </label>
-          </li>
-          <li>
-            <label class="check-label">
-              <input type="checkbox" class="check-input mandatory-cb" />
-              <span>You must be accompanied by an authorized escort at all times.</span>
-            </label>
-          </li>
-          <li>
-            <label class="check-label">
-              <input type="checkbox" class="check-input mandatory-cb" />
-              <span>I will not touch any equipment without explicit permission.</span>
-            </label>
-          </li>
-          <li>
-            <label class="check-label">
-              <input type="checkbox" class="check-input mandatory-cb" />
-              <span>I consent to follow all site safety rules and instructions.</span>
-            </label>
-          </li>
-        </ul>
-        <p id="mandatory-status" class="mt-4" style="font-size:0.875rem; font-weight:600; color:var(--color-danger);">
-          Please tick all items above to unlock the next step.
-        </p>
+      <!-- ANDRITZ EMPLOYEE FIELDS (Hidden by default) -->
+      <div id="andritz-fields" style="display: none;">
+        <div class="form-group">
+          <label for="f-email">Company Email ID <span class="req">*</span></label>
+          <input type="email" id="f-email" placeholder="name@andritz.com"/>
+        </div>
       </div>
-    </div>
 
-    <div class="btn-group">
-      <button class="btn btn-secondary nav-btn" data-target="prev">&larr; Back</button>
-      <button class="btn btn-primary nav-btn" id="btn-mandatory-next" data-target="next" disabled>Next: Knowledge Check &rarr;</button>
-    </div>
-  </section>
-
-  <!-- ── PAGE 5: Quiz ── -->
-  <section class="section" id="sec-quiz">
-    <div class="card">
-      <h2 class="card-title">
-        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        Quick Knowledge Check
-      </h2>
-      <p class="mb-4" style="color:var(--color-text-muted);">Answer correctly to proceed. You may retry if needed.</p>
-
-      <fieldset class="form-group" style="border:none; margin-bottom:1.5rem;">
-        <legend style="font-weight:700; margin-bottom:0.75rem;">1. Which PPE items are mandatory before entering the site?</legend>
-        <ul class="interactive-list">
-          <li><label class="check-label"><input type="radio" class="check-input" name="q1" value="a"/> Gloves and earplugs only</label></li>
-          <li><label class="check-label"><input type="radio" class="check-input" name="q1" value="b"/> Safety helmet, safety shoes, and reflective jacket</label></li>
-          <li><label class="check-label"><input type="radio" class="check-input" name="q1" value="c"/> Just a hard hat is enough</label></li>
-        </ul>
-        <div class="quiz-feedback" id="qf1"></div>
-      </fieldset>
-      
-      <fieldset class="form-group" style="border:none; margin-bottom:1.5rem;">
-        <legend style="font-weight:700; margin-bottom:0.75rem;">2. What should you do when you hear an emergency siren?</legend>
-        <ul class="interactive-list">
-          <li><label class="check-label"><input type="radio" class="check-input" name="q2" value="a"/> Continue working</label></li>
-          <li><label class="check-label"><input type="radio" class="check-input" name="q2" value="b"/> Run towards the exit immediately</label></li>
-          <li><label class="check-label"><input type="radio" class="check-input" name="q2" value="c"/> Follow exit signs to assembly point, stay calm</label></li>
-        </ul>
-        <div class="quiz-feedback" id="qf2"></div>
-      </fieldset>
-
-      <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-        <button type="button" class="btn btn-secondary" id="btn-quiz-check">Check Answers</button>
-        <span id="quiz-result" style="font-weight:600; font-size:0.9375rem;"></span>
-      </div>
-    </div>
-
-    <div class="btn-group">
-      <button class="btn btn-secondary nav-btn" data-target="prev">&larr; Back</button>
-      <button class="btn btn-primary nav-btn" id="btn-quiz-next" disabled data-target="next">Next: Register Entry &rarr;</button>
-    </div>
-  </section>
-
-  <!-- ── PAGE 6: Form ── -->
-  <section class="section" id="sec-register">
-    <div class="card">
-      <h2 class="card-title">Site Entry Registration</h2>
-      
-      <form id="visitor-form" novalidate>
-        <!-- Visitor Type Toggle -->
-        <fieldset style="border:none; margin-bottom:2rem;">
-          <legend class="sr-only" style="display:none;">Visitor Type</legend>
-          <div class="radio-card-grid">
-            <label class="radio-card">
-              <input type="radio" name="visitor_type" id="type-visitor" value="visitor" checked>
-              <div class="radio-card-content">
-                <span class="radio-card-title">Non-Andritz Visitor</span>
-                <span class="radio-card-desc">Full safety registration</span>
-              </div>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="visitor_type" id="type-andritz" value="andritz">
-              <div class="radio-card-content">
-                <span class="radio-card-title">Andritz Employee</span>
-                <span class="radio-card-desc">Quick entry (Name, Email, Mobile)</span>
-              </div>
-            </label>
-          </div>
-        </fieldset>
-
-        <p class="mb-4" style="font-size:0.875rem; color:var(--color-text-muted);">
-          Fields marked <span class="required-asterisk">*</span> are required.
-        </p>
-
-        <!-- Common Fields -->
-        <div class="form-grid">
+      <!-- NON-ANDRITZ VISITOR FIELDS -->
+      <div id="visitor-fields">
+        <div class="form-row">
           <div class="form-group">
-            <label for="f-name">Full Name <span class="required-asterisk">*</span></label>
-            <input type="text" id="f-name" class="form-control" placeholder="e.g. Ramesh Kumar" required />
+            <label for="f-org">Organisation / Company <span class="req">*</span></label>
+            <input type="text" id="f-org" placeholder="e.g. NEEPCO" required/>
           </div>
           <div class="form-group">
-            <label for="f-mobile">Mobile Number <span class="required-asterisk">*</span></label>
-            <input type="tel" id="f-mobile" class="form-control" placeholder="+91 XXXXX XXXXX" required />
+            <label for="f-purpose">Purpose of Visit <span class="req">*</span></label>
+            <select id="f-purpose" required>
+              <option value="">— Select —</option>
+              <option>Official Inspection</option>
+              <option>Client Visit (NEEPCO)</option>
+              <option>Vendor / Supplier</option>
+              <option>Contractor Meeting</option>
+              <option>Government / Regulatory</option>
+              <option>Other</option>
+            </select>
           </div>
         </div>
 
-        <!-- Andritz Employee Fields -->
-        <div id="andritz-fields" style="display: none;">
+        <div class="form-row">
           <div class="form-group">
-            <label for="f-email">Company Email ID <span class="required-asterisk">*</span></label>
-            <input type="email" id="f-email" class="form-control" placeholder="name@andritz.com" />
+            <label for="f-area">Area to be Visited <span class="req">*</span></label>
+            <select id="f-area" required>
+              <option value="">— Select —</option>
+              <option value="SwitchYard">SwitchYard</option>
+              <option value="Control Room">Control Room</option>
+              <option value="Turbine Floor">Turbine Floor</option>
+              <option value="MIV Floor">MIV Floor</option>
+              <option value="Generator Floor">Generator Floor</option>
+              <option value="Dam">Dam</option>
+              <option value="Office / Colony">Office / Colony</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-host">Hosted By (Site Contact Name) <span class="req">*</span></label>
+            <input type="text" id="f-host" placeholder="Name of person receiving you" required/>
           </div>
         </div>
 
-        <!-- Non-Andritz Visitor Fields -->
-        <div id="visitor-fields">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="f-org">Organisation / Company <span class="required-asterisk">*</span></label>
-              <input type="text" id="f-org" class="form-control" placeholder="e.g. NEEPCO" required />
-            </div>
-            <div class="form-group">
-              <label for="f-purpose">Purpose of Visit <span class="required-asterisk">*</span></label>
-              <select id="f-purpose" class="form-control" required>
-                <option value="">— Select —</option>
-                <option>Official Inspection</option>
-                <option>Client Visit</option>
-                <option>Vendor / Supplier</option>
-                <option>Contractor Meeting</option>
-                <option>Other</option>
-              </select>
-            </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-date">Date of Visit <span class="req">*</span></label>
+            <input type="date" id="f-date" required/>
           </div>
-          
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="f-date">Date of Visit <span class="required-asterisk">*</span></label>
-              <input type="date" id="f-date" class="form-control" required />
-            </div>
-            <div class="form-group">
-              <label for="f-timein">Expected Time In <span class="required-asterisk">*</span></label>
-              <input type="time" id="f-timein" class="form-control" required />
-            </div>
+          <div class="form-group">
+            <label for="f-timein">Expected Time In <span class="req">*</span></label>
+            <input type="time" id="f-timein" required/>
           </div>
         </div>
 
-        <!-- Final Consent -->
-        <div class="alert alert-safe mt-4" style="display:block;">
-          <label class="check-label" style="padding:0; align-items:center;">
-            <input type="checkbox" id="consent-cb" class="check-input" required />
-            <span>I confirm completion of this safety induction and agree to comply with all rules.</span>
-          </label>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-idtype">ID Proof Type <span class="req">*</span></label>
+            <select id="f-idtype" required>
+              <option value="">— Select —</option>
+              <option value="Aadhaar Card">Aadhaar Card</option>
+              <option value="Passport">Passport</option>
+              <option value="Driving Licence">Driving Licence</option>
+              <option value="Company ID">Company ID</option>
+              <option value="Government ID">Government ID</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-idnum">ID Proof Number <span class="req">*</span></label>
+            <input type="text" id="f-idnum" placeholder="Enter ID number" required/>
+          </div>
         </div>
 
-        <div class="btn-group">
-          <button type="button" class="btn btn-secondary nav-btn" data-target="prev">&larr; Back</button>
-          <button type="submit" class="btn btn-success" id="btn-submit" disabled>✓ Submit Entry</button>
+        <div class="form-group">
+          <label for="f-bp">Blood Group <span class="req">*</span></label>
+          <input type="text" id="f-bp" placeholder="e.g. B+" required/>
         </div>
-      </form>
-    </div>
-  </section>
+      </div>
 
-  <!-- ── PAGE 7: Success ── -->
-  <section class="section" id="sec-success">
-    <div class="card" style="text-align: center; padding: 4rem 2rem;">
-      <svg class="icon-svg" viewBox="0 0 24 24" style="width:64px; height:64px; color:var(--color-safe); margin:0 auto 1rem;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
-      <h2 style="color:var(--color-safe); margin-bottom:1rem; font-size:2rem;">Induction Complete!</h2>
-      <p>Your entry has been securely logged.</p>
+      <!-- CONSENT BOX (Applies to both) -->
+      <div class="consent-box">
+        <p>By checking below, I confirm that I have completed the Safety Induction for GSPS Site&#xD7;55 MW site and agree to:</p>
+        <ul style="margin: 10px 0 0 16px; font-size:14px; line-height:1.6; color:#34495E;">
+          <li>Wear the mandatory PPE (Helmet, Shoes, Reflective Jacket) at all times.</li>
+          <li>Follow all instructions from site management, supervisors, and HSE Advisor.</li>
+          <li>Report any unsafe conditions, near-misses, or incidents immediately.</li>
+          <li>Not enter any restricted area without an authorized escort.</li>
+        </ul>
+        <div class="consent-check">
+          <input type="checkbox" id="consent-cb" required/>
+          <label for="consent-cb">I have read, understood, and agree to comply with all site safety rules.</label>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-secondary" data-goto="prev">&#8592; Back</button>
+        <button type="submit" class="btn btn-success" id="btn-submit" disabled>&#10004; Submit &amp; Complete</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── PAGE 7: Success ── -->
+<div class="section" id="sec-success">
+  <div class="card">
+    <div class="success-screen">
+      <div class="tick">&#9989;</div>
+      <h2>Induction Complete!</h2>
+      <p>You have successfully completed the GSPS site Visitor Safety Induction.<br/>Your entry has been submitted to the site log.</p>
+      <div class="pass-id" id="pass-id">VIS-000001</div>
+      <p style="font-size:15px; font-weight: 600; color: var(--navy);">Please show this Pass ID at the site gate.<br/>Keep this page open or take a screenshot.</p>
       
-      <div style="background:var(--color-bg-page); border:2px dashed var(--color-brand-primary); border-radius:var(--radius-lg); padding:2rem; margin:2rem auto; font-size:2rem; font-weight:800; color:var(--color-brand-dark); letter-spacing:0.1em; max-width:400px; word-break: break-all;" id="pass-id">
-        VIS-000000
+      <div class="alert alert-warn" style="text-align:left; margin-top:32px;">
+        <strong>Remember before entering:</strong><br/>
+        &#9937;&#65039; Helmet &nbsp;|&nbsp; &#128095; Safety Shoes &nbsp;|&nbsp; &#129510; Reflective Jacket<br/>
+        Stay with your host at all times. Report any unsafe conditions to the HSE Advisor.
       </div>
       
-      <p style="font-weight:600; color:var(--color-text-main);">Please show this Pass ID at the gate.</p>
-      
-      <button class="btn btn-primary mt-4" onclick="window.print()">
-        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
-        Print / Save Pass
-      </button>
+      <button class="btn btn-primary" style="margin-top:20px;" id="btn-print">&#128438; Print / Save Pass</button>
     </div>
-  </section>
-</main>
+  </div>
+</div>
 
-<iframe id="hidden_iframe" name="hidden_iframe" style="display:none;" title="Form submission target"></iframe>
+<!-- Hidden iframe for Google Forms submission -->
+<iframe id="hidden_iframe" name="hidden_iframe" style="display:none;" title="form submission target"></iframe>
 
 <script>
-/**
- * Visitor Induction App Module
- * Encapsulates logic to prevent global scope pollution.
- */
-const InductionApp = (function() {
+(function () {
   'use strict';
 
-  // Constants & Config
-  const CONFIG = {
-    QUIZ_ANSWERS: { q1: 'b', q2: 'c' },
-    FORM_URL: 'https://docs.google.com/forms/d/e/1FAIpQLSezJ6f_pB3bPPvcZL1w_t-cwKQ6qXnn4BLaxQONdD_hBX0MKA/formResponse'
-  };
+  // Quick Selectors
+  const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+  const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
 
-  // State
-  let state = {
-    currentIndex: 0,
-    sections: Array.from(document.querySelectorAll('.section'))
-  };
+  // Configuration
+  const QUIZ_ANSWERS = { q1: 'b', q2: 'c', q3: 'c' };
+  const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSezJ6f_pB3bPPvcZL1w_t-cwKQ6qXnn4BLaxQONdD_hBX0MKA/formResponse';
 
-  // DOM Elements
-  const els = {
-    progressFill: document.getElementById('progress-fill'),
-    stepLabel: document.getElementById('step-label'),
-    navBtns: document.querySelectorAll('.nav-btn'),
-    tabBtns: document.querySelectorAll('.tab-btn'),
-    mandatoryCbs: document.querySelectorAll('.mandatory-cb'),
-    mandatoryNextBtn: document.getElementById('btn-mandatory-next'),
-    mandatoryStatus: document.getElementById('mandatory-status'),
-    quizCheckBtn: document.getElementById('btn-quiz-check'),
-    quizNextBtn: document.getElementById('btn-quiz-next'),
-    quizResult: document.getElementById('quiz-result'),
-    visitorTypeInputs: document.querySelectorAll('input[name="visitor_type"]'),
-    visitorForm: document.getElementById('visitor-form'),
-    consentCb: document.getElementById('consent-cb'),
-    submitBtn: document.getElementById('btn-submit'),
-    overlay: document.getElementById('submit-overlay'),
-    dateInput: document.getElementById('f-date')
-  };
+  const progressFill = $('#pfill');
+  const stepLabel = $('#step-label');
+  const submitOverlay = $('#submit-overlay');
+  const visitorForm = $('#visitor-form');
+  
+  const sections = $$('.section');
+  let currentIndex = Math.max(0, sections.findIndex((s) => s.classList.contains('active')));
 
-  /**
-   * Initializes the application
-   */
-  function init() {
-    bindEvents();
-    updateView();
-    // Pre-fill today's date
-    if (els.dateInput) {
-      els.dateInput.value = new Date().toISOString().split('T')[0];
-    }
-  }
-
-  /**
-   * Binds all event listeners
-   */
-  function bindEvents() {
-    // Navigation
-    els.navBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        if(btn.type !== 'submit') e.preventDefault();
-        navigate(btn.dataset.target);
-      });
-    });
-
-    // Tabs
-    els.tabBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        switchTab(btn, btn.dataset.tab);
-      });
-    });
-
-    // Mandatory Checks
-    els.mandatoryCbs.forEach(cb => {
-      cb.addEventListener('change', validateMandatoryChecks);
-    });
-
-    // Quiz Validation
-    if(els.quizCheckBtn) {
-      els.quizCheckBtn.addEventListener('click', validateQuiz);
-    }
-
-    // Form Type Toggle
-    els.visitorTypeInputs.forEach(input => {
-      input.addEventListener('change', toggleFormFields);
-    });
-
-    // Final Consent Check
-    if(els.consentCb) {
-      els.consentCb.addEventListener('change', (e) => {
-        els.submitBtn.disabled = !e.target.checked;
-      });
-    }
-
-    // Form Submission
-    if(els.visitorForm) {
-      els.visitorForm.addEventListener('submit', handleFormSubmit);
-    }
-  }
-
-  /**
-   * Section Navigation Logic
-   */
-  function navigate(target) {
-    if (target === 'next' && state.currentIndex < state.sections.length - 1) {
-      state.currentIndex++;
-    } else if (target === 'prev' && state.currentIndex > 0) {
-      state.currentIndex--;
-    }
-    updateView();
-  }
-
-  function updateView() {
-    state.sections.forEach((sec, index) => {
-      sec.classList.toggle('active', index === state.currentIndex);
-    });
-    
-    // Update Progress
-    const maxSteps = state.sections.length - 1; // Don't count success screen in progress tracking easily
-    const progress = Math.min((state.currentIndex / (maxSteps - 1)) * 100, 100);
-    
-    els.progressFill.style.width = `${progress}%`;
-    els.stepLabel.textContent = `Step ${state.currentIndex + 1} of ${maxSteps}`;
-    
+  // 1. Navigation Logic
+  function showStep(index) {
+    sections.forEach((s) => s.classList.remove('active'));
+    sections[index].classList.add('active');
+    let progress = (index / (sections.length - 1)) * 100;
+    progressFill.style.width = `${progress}%`;
+    stepLabel.textContent = `Step ${index + 1} / ${sections.length}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  /**
-   * Tab Switching Logic
-   */
-  function switchTab(clickedBtn, targetId) {
-    const parentNav = clickedBtn.closest('.tabs-nav');
-    
-    // Reset tabs in this group
-    parentNav.querySelectorAll('.tab-btn').forEach(b => {
-      b.classList.remove('active');
-      b.setAttribute('aria-pressed', 'false');
-    });
-    
-    // Hide panels
-    document.querySelectorAll('.tab-content').forEach(p => p.classList.remove('active'));
-    
-    // Activate clicked
-    clickedBtn.classList.add('active');
-    clickedBtn.setAttribute('aria-pressed', 'true');
-    document.getElementById(targetId).classList.add('active');
-  }
+  function goTo(target) {
+    let index;
+    if (target === 'next') index = currentIndex + 1;
+    else if (target === 'prev') index = currentIndex - 1;
+    else index = sections.findIndex((s) => s.id === target);
 
-  /**
-   * Mandatory Section Validation
-   */
-  function validateMandatoryChecks() {
-    const allChecked = Array.from(els.mandatoryCbs).every(cb => cb.checked);
-    els.mandatoryNextBtn.disabled = !allChecked;
-    
-    if (allChecked) {
-      els.mandatoryStatus.textContent = 'All mandatory requirements acknowledged.';
-      els.mandatoryStatus.className = 'mt-4 text-safe';
-    } else {
-      els.mandatoryStatus.textContent = 'Please tick all items above to proceed.';
-      els.mandatoryStatus.className = 'mt-4 text-danger';
+    if (index >= 0 && index < sections.length) {
+      currentIndex = index;
+      showStep(currentIndex);
     }
   }
 
-  /**
-   * Quiz Validation
-   */
-  function validateQuiz() {
-    let score = 0;
-    const totalQuestions = Object.keys(CONFIG.QUIZ_ANSWERS).length;
+  // 2. Tab Navigation
+  function switchTab(button, targetId) {
+    const tabGroup = button.closest('.tabs');
+    const tabContainer = tabGroup.parentElement;
+    
+    tabGroup.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+    tabContainer.querySelectorAll('.tab-pane').forEach((p) => p.classList.remove('active'));
+    
+    button.classList.add('active');
+    $(`#${targetId}`).classList.add('active');
+  }
 
-    Object.keys(CONFIG.QUIZ_ANSWERS).forEach(qName => {
-      const selected = document.querySelector(`input[name="${qName}"]:checked`);
-      const feedback = document.getElementById(`qf${qName.replace('q', '')}`);
-      
+  // 3. Mandatory Checklist Logic
+  function updateMandatoryStatus() {
+    const boxes = $$('[data-mandatory-check]');
+    const allChecked = boxes.every((b) => b.checked);
+    const status = $('#mandatory-status');
+    
+    if (allChecked) {
+      status.textContent = 'All mandatory requirements acknowledged.';
+      status.style.color = 'var(--safe)';
+      $('#btn-mandatory-next').disabled = false;
+    } else {
+      status.textContent = 'Please tick all items above to proceed.';
+      status.style.color = 'var(--danger)';
+      $('#btn-mandatory-next').disabled = true;
+    }
+  }
+
+  // 4. Quiz Logic
+  function checkQuiz() {
+    let score = 0;
+    Object.keys(QUIZ_ANSWERS).forEach((q) => {
+      const selected = $(`input[name="${q}"]:checked`);
+      const feedback = $(`#qf${q.slice(1)}`);
       feedback.style.display = 'block';
       
       if (!selected) {
-        setQuizFeedback(feedback, false, 'Please select an answer.');
-      } else if (selected.value === CONFIG.QUIZ_ANSWERS[qName]) {
-        setQuizFeedback(feedback, true, '✓ Correct');
+        feedback.className = 'quiz-feedback wrong';
+        feedback.textContent = 'Please select an answer.';
+      } else if (selected.value === QUIZ_ANSWERS[q]) {
+        feedback.className = 'quiz-feedback correct';
+        feedback.textContent = 'Correct!';
         score++;
       } else {
-        setQuizFeedback(feedback, false, '✗ Incorrect. Please review and try again.');
+        feedback.className = 'quiz-feedback wrong';
+        feedback.textContent = 'Incorrect. Please review the material and try again.';
       }
     });
 
-    const allPassed = score === totalQuestions;
-    els.quizNextBtn.disabled = !allPassed;
+    const result = $('#quiz-result');
+    const allCorrect = score === Object.keys(QUIZ_ANSWERS).length;
     
-    els.quizResult.textContent = allPassed ? 'Passed! You may proceed.' : `${score}/${totalQuestions} correct.`;
-    els.quizResult.className = allPassed ? 'text-safe' : 'text-danger';
+    result.style.color = allCorrect ? 'var(--safe)' : 'var(--danger)';
+    result.textContent = allCorrect
+      ? 'All correct! You may proceed.'
+      : `${score}/${Object.keys(QUIZ_ANSWERS).length} correct. Review and retry.`;
+    
+    $('#btn-quiz-next').disabled = !allCorrect;
   }
 
-  function setQuizFeedback(el, isCorrect, msg) {
-    el.textContent = msg;
-    el.className = `quiz-feedback ${isCorrect ? 'alert-safe' : 'alert-danger'}`;
-  }
-
-  /**
-   * Form UI Toggling
-   */
-  function toggleFormFields() {
-    const isAndritz = document.getElementById('type-andritz').checked;
+  // 5. Form Type Toggling (Andritz vs Non-Andritz)
+  function toggleFormType() {
+    const isAndritz = $('#type-andritz').checked;
     
-    document.getElementById('visitor-fields').style.display = isAndritz ? 'none' : 'block';
-    document.getElementById('andritz-fields').style.display = isAndritz ? 'block' : 'none';
+    // Toggle Layout Visibility
+    $('#visitor-fields').style.display = isAndritz ? 'none' : 'block';
+    $('#andritz-fields').style.display = isAndritz ? 'block' : 'none';
     
-    // Toggle required attributes for hidden/shown fields to not block validation
-    document.querySelectorAll('#visitor-fields input, #visitor-fields select').forEach(el => {
+    // Toggle the 'required' attributes so form validation does not block submission on hidden fields
+    $$('#visitor-fields input, #visitor-fields select').forEach(el => {
       el.required = !isAndritz;
     });
     
-    document.getElementById('f-email').required = isAndritz;
+    $('#f-email').required = isAndritz;
   }
 
-  /**
-   * Form Submission Handling
-   */
-  function handleFormSubmit(e) {
-    e.preventDefault();
-    
-    if (!els.visitorForm.checkValidity()) {
-      els.visitorForm.reportValidity();
-      return;
-    }
-
-    // Generate unique ID
-    const passId = `VIS-${Math.floor(100000 + Math.random() * 900000)}`;
-    document.getElementById('pass-id').textContent = passId;
-    
-    // Show Loading
-    els.overlay.classList.add('active');
-
-    // Build Payload
-    const isAndritz = document.getElementById('type-andritz').checked;
-    let payload = {
-      'entry.503286308': document.getElementById('f-mobile').value,
-      'entry.659276636': passId,
-    };
-
-    if (isAndritz) {
-      payload['entry.2017134743'] = `${document.getElementById('f-name').value} (${document.getElementById('f-email').value})`;
-      payload['entry.338794571'] = 'ANDRITZ (Employee)'; 
-      payload['entry.588372971'] = 'Internal Employee'; 
-    } else {
-      payload['entry.2017134743'] = document.getElementById('f-name').value;
-      payload['entry.338794571'] = document.getElementById('f-org').value;
-      payload['entry.588372971'] = document.getElementById('f-purpose').value;
-      
-      const dateVal = document.getElementById('f-date').value;
-      if(dateVal) {
-        const [y, m, d] = dateVal.split('-');
-        payload['entry.1679077126_year'] = y;
-        payload['entry.1679077126_month'] = parseInt(m, 10).toString();
-        payload['entry.1679077126_day'] = parseInt(d, 10).toString();
-      }
-    }
-
-    // Submit silently
-    postToIframe(payload);
-
-    // Simulate network delay for UX
-    setTimeout(() => {
-      els.overlay.classList.remove('active');
-      navigate('next'); // Go to success screen
-    }, 1500);
-  }
-
-  function postToIframe(data) {
+  // 6. Form Submission via Hidden Iframe
+  function postToGoogleForm(fields) {
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = CONFIG.FORM_URL;
+    form.action = GOOGLE_FORM_ACTION;
     form.target = 'hidden_iframe';
     form.style.display = 'none';
 
-    Object.entries(data).forEach(([key, value]) => {
+    Object.entries(fields).forEach(([name, value]) => {
       const input = document.createElement('input');
       input.type = 'hidden';
-      input.name = key;
+      input.name = name;
       input.value = value;
       form.appendChild(input);
     });
@@ -1237,13 +774,127 @@ const InductionApp = (function() {
     form.remove();
   }
 
-  // Expose init safely
-  return { init };
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    // Utilize native HTML5 form validation UX
+    if (!visitorForm.checkValidity()) {
+      visitorForm.reportValidity();
+      return;
+    }
 
+    const passId = `VIS-${Date.now().toString().slice(-6)}`;
+    $('#pass-id').textContent = passId;
+    submitOverlay.classList.add('show');
+
+    const isAndritz = $('#type-andritz').checked;
+    
+    // Common fields
+    let payload = {
+      'entry.503286308': $('#f-mobile').value,
+      'entry.659276636': passId,
+    };
+
+    if (isAndritz) {
+      // Append Email to the name field to ensure the data is captured (until you add an Email entry ID to your Google Form)
+      payload['entry.2017134743'] = `${$('#f-name').value} (${$('#f-email').value})`;
+      
+      // Auto-fill required visitor data with default safe values to bypass Google Form mandatory blocks
+      payload['entry.338794571'] = 'ANDRITZ (Employee)'; 
+      payload['entry.588372971'] = 'Internal Employee'; 
+      payload['entry.1984568855'] = 'All Areas'; 
+      payload['entry.819725668'] = 'Self / Internal'; 
+      payload['entry.1177683264'] = 'Company ID'; 
+      payload['entry.1053711216'] = 'N/A'; 
+      payload['entry.1960355008'] = 'N/A'; 
+      
+      // Automatically pull current Date & Time
+      const now = new Date();
+      payload['entry.1679077126_year'] = now.getFullYear().toString();
+      payload['entry.1679077126_month'] = (now.getMonth() + 1).toString();
+      payload['entry.1679077126_day'] = now.getDate().toString();
+      payload['entry.1257435586_hour'] = now.getHours().toString().padStart(2, '0');
+      payload['entry.1257435586_minute'] = now.getMinutes().toString().padStart(2, '0');
+
+    } else {
+      // Standard Visitor Form Logic
+      const [dateYear, dateMonth, dateDay] = $('#f-date').value.split('-');
+      const [timeHour, timeMinute] = $('#f-timein').value.split(':');
+
+      payload['entry.2017134743'] = $('#f-name').value;
+      payload['entry.338794571'] = $('#f-org').value;
+      payload['entry.588372971'] = $('#f-purpose').value;
+      payload['entry.1984568855'] = $('#f-area').value;
+      payload['entry.1679077126_year'] = dateYear;
+      payload['entry.1679077126_month'] = String(parseInt(dateMonth, 10));
+      payload['entry.1679077126_day'] = String(parseInt(dateDay, 10));
+      payload['entry.1257435586_hour'] = timeHour;
+      payload['entry.1257435586_minute'] = timeMinute;
+      payload['entry.819725668'] = $('#f-host').value;
+      payload['entry.1177683264'] = $('#f-idtype').value;
+      payload['entry.1053711216'] = $('#f-idnum').value;
+      payload['entry.1960355008'] = $('#f-bp').value;
+    }
+
+    // Submit POST payload to Google Forms
+    postToGoogleForm(payload);
+
+    setTimeout(() => {
+      submitOverlay.classList.remove('show');
+      goTo('sec-success');
+    }, 2000);
+  }
+
+  // 7. Event Listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    showStep(currentIndex);
+
+    // Pre-fill today's date for standard visitors
+    $('#f-date').value = new Date().toISOString().split('T')[0];
+
+    // Form Type Listeners
+    $('#type-visitor').addEventListener('change', toggleFormType);
+    $('#type-andritz').addEventListener('change', toggleFormType);
+
+    // Navigation buttons
+    $$('[data-goto]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        if(btn.type !== 'submit') e.preventDefault();
+        if(btn.id !== 'btn-submit') goTo(btn.dataset.goto);
+      });
+    });
+
+    // Tabs
+    $$('[data-tab]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchTab(btn, btn.dataset.tab);
+      });
+    });
+
+    // Mandatory Checklist
+    $$('[data-mandatory-check]').forEach((box) => {
+      box.addEventListener('change', updateMandatoryStatus);
+    });
+
+    // Quiz Button
+    $('#btn-quiz-check').addEventListener('click', (e) => {
+      e.preventDefault();
+      checkQuiz();
+    });
+
+    // Consent Checkbox Toggle
+    $('#consent-cb').addEventListener('change', (e) => {
+      $('#btn-submit').disabled = !e.target.checked;
+    });
+
+    // Form Submission
+    visitorForm.addEventListener('submit', handleFormSubmit);
+
+    // Print Pass
+    $('#btn-print').addEventListener('click', () => window.print());
+  });
 })();
-
-// Boot the App
-document.addEventListener('DOMContentLoaded', InductionApp.init);
 </script>
 </body>
 </html>
